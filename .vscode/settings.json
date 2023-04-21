@@ -2,6 +2,7 @@
   "editor.fontSize": 13,
   "omnisharp.useModernNet": false,
   "omnisharp.projectLoadTimeout": 60,
+  "omnisharp.path": "latest",
   "editor.lineHeight": 22,
   "editor.fontFamily": "JetBrains Mono",
   "files.exclude": {
