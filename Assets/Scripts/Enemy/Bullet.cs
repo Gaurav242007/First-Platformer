@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
 		rb.velocity = transform.right * speed;
 	}
 
-	void OnTriggerEnter2D (Collider2D hitInfo)
+	IEnumerator OnTriggerEnter2D (Collider2D hitInfo)
 	{
 		Enemy enemy = hitInfo.GetComponent<Enemy>();
 		if (enemy != null)
@@ -22,7 +22,9 @@ public class Bullet : MonoBehaviour {
 			enemy.TakeDamage(damage);
 		}
 
-		Instantiate(impactEffect, transform.position, transform.rotation);
+		var clone = Instantiate(impactEffect, transform.position, transform.rotation);
+		yield return 0;
+		Destroy(clone);
 
 		Destroy(gameObject);
 	}

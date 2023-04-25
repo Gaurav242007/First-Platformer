@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+	public bool isRayCast;
     public Transform firePoint;
     public GameObject bulletPrefab;
     
@@ -16,15 +17,20 @@ public class Weapon : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
+			if(isRayCast)
+			{
 			StartCoroutine(Shoot());
-			// Shoot();
+			}
+			else 
+			{
+				FirePrefab();
+			}
         }
     }
 
     IEnumerator Shoot ()
     {
         // Shooting Logic
-        // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
 
 		if (hitInfo)
@@ -35,10 +41,12 @@ public class Weapon : MonoBehaviour
 				enemy.TakeDamage(damage);
 			}
 
-			Instantiate(impactEffect, hitInfo.point, Quaternion.identity);
+			var clone = Instantiate(impactEffect, hitInfo.point, Quaternion.identity);
 
 			lineRenderer.SetPosition(0, firePoint.position);
 			lineRenderer.SetPosition(1, hitInfo.point);
+			yield return 0;
+			Destroy(clone);
 		} else
 		{
 			lineRenderer.SetPosition(0, firePoint.position);
@@ -51,4 +59,10 @@ public class Weapon : MonoBehaviour
 
 		lineRenderer.enabled = false;
     }
+
+	void FirePrefab()
+	{
+		
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+	}
 }
