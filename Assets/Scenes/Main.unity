@@ -268,6 +268,8 @@ MonoBehaviour:
   Text: {fileID: 1001896662}
   score: 0
   Music: {fileID: 3397291}
+  player: {fileID: 820667350}
+  HealthOnKilling: 2
 --- !u!1 &45610584
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,8 +932,8 @@ MonoBehaviour:
   - {fileID: 1916127212}
   enemyPrefab: {fileID: 8369322798732891990, guid: 0cb71fad96e5b6944b81959d40064a49,
     type: 3}
-  timeBetweenWaves: 25
-  timeToSpawn: 14
+  timeBetweenWaves: 15
+  timeToSpawn: 10
 --- !u!1 &431344620
 GameObject:
   m_ObjectHideFlags: 0

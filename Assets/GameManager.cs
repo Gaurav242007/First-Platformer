@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text Text;
     public int score = 0;
     public AudioSource Music;
+    public GameObject player;
+    public int HealthOnKilling = 1; 
 
     public void Start()
     {
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
     {
             score += newScore;
             Text.text = score.ToString("0");
+            Player playerScript = player.GetComponent<Player>();
+            playerScript.TakeHealth(HealthOnKilling);
     }
     
 

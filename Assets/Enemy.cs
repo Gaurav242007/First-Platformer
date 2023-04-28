@@ -11,9 +11,11 @@ public class Enemy : MonoBehaviour {
 	public GameObject deathEffect;
 	public GameObject bulletPrefab;
 	public Transform firePoint;
+	public Rigidbody2D rb;
 
     public float timeBetweenShoot = 1f;
     public float timeToShoot = 2f;
+	public int danagerYPosition;
 
 	public void Start ()
 	{
@@ -31,6 +33,11 @@ public class Enemy : MonoBehaviour {
             timeToShoot = Time.time + timeBetweenShoot;
 
         }
+
+		if(rb.position.y < danagerYPosition)
+		{
+			Die();
+		}
 	}
 
 

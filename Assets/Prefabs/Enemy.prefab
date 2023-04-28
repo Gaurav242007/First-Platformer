@@ -600,8 +600,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4110587911236211457, guid: bad799b6ce6415341a600863cb93ef5b,
     type: 3}
   firePoint: {fileID: 8872110822884658721}
+  rb: {fileID: 0}
   timeBetweenShoot: 1
   timeToShoot: 2
+  danagerYPosition: -34
 --- !u!50 &8670734698489115438
 Rigidbody2D:
   serializedVersion: 4
