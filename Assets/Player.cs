@@ -40,6 +40,17 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	public void TakeHealth(int health)
+	{
+		if(currentHealth >= 90)
+		{
+			currentHealth = 100;
+		}
+		else {
+			currentHealth += health;
+		}
+	}
+
 	void Die ()
 	{
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
