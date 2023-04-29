@@ -45,9 +45,11 @@ public class Player : MonoBehaviour
 		if(currentHealth >= 90)
 		{
 			currentHealth = 100;
+			healthBar.SetHealth(currentHealth);
 		}
 		else {
 			currentHealth += health;
+			healthBar.SetHealth(currentHealth);
 		}
 	}
 
